@@ -14,8 +14,7 @@ nginx:
     - ./nginx/ssl/server.crt/:/etc/nginx/ssl/server.crt:ro
     - ./nginx/ssl/server.key/:/etc/nginx/ssl/server.key:ro
   links:
-    - fpm:__DOCKER_PHP_FPM__
-
+    - fpm:docker-php-fpm
 # php-fpm
 fpm:
   build: ./php-fpm
@@ -34,7 +33,6 @@ fpm:
     # - DB_PASSWORD=
   links:
     - mysql:mysql
-
 # database
 mysql:
   image: mysql:latest
